@@ -1,5 +1,5 @@
 import Hero from "./components/Hero/Hero";
-import List from "./components/List";
+import List from "./components/List/List";
 import Container from "./components/Container";
 function App() {
   return (
