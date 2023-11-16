@@ -1,0 +1,8 @@
+@import "../../styles/settings.scss";
+.columnForm {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $base-size;
+  align-items: center;
+  padding: 10px;
+}
