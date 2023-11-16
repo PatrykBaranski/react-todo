@@ -3,6 +3,7 @@ import { useState } from "react";
 import Column from "./Column";
 import ColumnForm from "./ColumnForm";
 import styles from "./List.module.scss";
+
 function List() {
   const [columns, setColumns] = useState([
     {
@@ -34,23 +35,23 @@ function List() {
     },
   ]);
 
-  const addColumn = ({ title, icon }) => {
+  const handleAddColumn = ({ title, icon }) => {
     setColumns((prevState) => [
       ...prevState,
       { id: shortid(), title, icon, cards: [] },
     ]);
   };
 
-  const addCard = (text, columnID) => {
+  const handleAddCard = (text, columnID) => {
     setColumns((prevState) =>
-      prevState.map((column) => {
-        if (column.id === columnID)
-          return {
-            ...column,
-            cards: [...column.cards, { id: shortid(), title: text }],
-          };
-        else return column;
-      })
+      prevState.map((column) =>
+        column.id === columnID
+          ? {
+              ...column,
+              cards: [...column.cards, { id: shortid(), title: text }],
+            }
+          : column
+      )
     );
   };
 
@@ -72,10 +73,10 @@ function List() {
             columnTitle={column.title}
             icon={column.icon}
             cards={column.cards}
-            addCard={addCard}
+            addCard={handleAddCard}
           />
         ))}
-        <ColumnForm action={addColumn} />
+        <ColumnForm action={handleAddColumn} />
       </section>
     </div>
   );

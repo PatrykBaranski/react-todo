@@ -1,6 +1,7 @@
 import Card from "./Card";
 import CardForm from "./CardForm";
 import styles from "./Column.module.scss";
+
 function Column({ columnTitle, icon, cards, addCard, id }) {
   return (
     <article className={styles.column}>

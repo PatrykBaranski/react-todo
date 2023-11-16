@@ -2,6 +2,7 @@ import { useState } from "react";
 import Button from "../Button/Button";
 import TextInput from "../TextInput/TextInput";
 import styles from "./ColumnForm.module.scss";
+
 function ColumnForm(props) {
   const [title, setTitle] = useState("");
   const [icon, setIcon] = useState("");
