@@ -33,12 +33,27 @@ function List() {
       ],
     },
   ]);
+
   const addColumn = ({ title, icon }) => {
     setColumns((prevState) => [
       ...prevState,
       { id: shortid(), title, icon, cards: [] },
     ]);
   };
+
+  const addCard = (text, columnID) => {
+    setColumns((prevState) =>
+      prevState.map((column) => {
+        if (column.id === columnID)
+          return {
+            ...column,
+            cards: [...column.cards, { id: shortid(), title: text }],
+          };
+        else return column;
+      })
+    );
+  };
+
   return (
     <div>
       <header className={styles.header}>
@@ -53,9 +68,11 @@ function List() {
         {columns.map((column) => (
           <Column
             key={column.id}
+            id={column.id}
             columnTitle={column.title}
             icon={column.icon}
             cards={column.cards}
+            addCard={addCard}
           />
         ))}
         <ColumnForm action={addColumn} />

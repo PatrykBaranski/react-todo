@@ -1,7 +1,7 @@
 import Card from "./Card";
-
+import CardForm from "./CardForm";
 import styles from "./Column.module.scss";
-function Column({ columnTitle, icon, cards }) {
+function Column({ columnTitle, icon, cards, addCard, id }) {
   return (
     <article className={styles.column}>
       <h2 className={styles.title}>
@@ -10,9 +10,12 @@ function Column({ columnTitle, icon, cards }) {
       </h2>
       <ul className={styles.cards}>
         {cards.map(({ id, title }) => (
-          <Card id={id}>{title}</Card>
+          <Card key={id} id={id}>
+            {title}
+          </Card>
         ))}
       </ul>
+      <CardForm actionHandler={addCard} columnId={id} />
     </article>
   );
 }
