@@ -14,6 +14,11 @@ const reducer = (state, action) => {
         ...state,
         cards: [...state.cards, { ...action.payload, id: shortid() }],
       };
+    case "ADD_SEARCH_STRING":
+      return {
+        ...state,
+        searchFormString: action.payload,
+      };
     default:
       return state;
   }
