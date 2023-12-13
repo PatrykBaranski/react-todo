@@ -2,6 +2,7 @@ import TextInput from "../TextInput/TextInput";
 import Button from "../Button/Button";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { addCard } from "../../redux/store";
 
 function CardForm({ columnId }) {
   const [inputText, setInputText] = useState("");
@@ -9,7 +10,7 @@ function CardForm({ columnId }) {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch({ type: "ADD_CARD", payload: { columnId, title: inputText } });
+    dispatch(addCard({ columnId, title: inputText }));
     setInputText("");
   };
 

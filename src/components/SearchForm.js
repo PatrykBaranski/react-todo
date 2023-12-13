@@ -3,6 +3,7 @@ import Button from "./Button/Button";
 import styles from "./SearchForm.module.scss";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
+import { addSearchString } from "../redux/store";
 
 function SearchForm() {
   const [inputText, setInputText] = useState("");
@@ -10,7 +11,7 @@ function SearchForm() {
 
   const handelSubmit = (e) => {
     e.preventDefault();
-    dispatch({ type: "ADD_SEARCH_STRING", payload: inputText });
+    dispatch(addSearchString(inputText));
     setInputText("");
   };
 
