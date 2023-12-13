@@ -1,0 +1,26 @@
+@import "../styles/settings.scss";
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $color-black;
+  padding: 0 220px;
+
+  a {
+    color: $color-light;
+    text-decoration: none;
+    font-size: 16px;
+    transition: all 0.3s ease-in;
+  }
+
+  a:hover {
+    color: $color-success;
+  }
+
+  .nav-list {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+}
