@@ -41,6 +41,14 @@ export const getFilteredCards = ({ cards, searchFormString }, columnId) =>
 
 export const getAllColumns = (state) => state.columns;
 
+export const getAllLists = (state) => state.lists;
+
+export const getListById = ({ lists }, id) =>
+  lists.find((elem) => elem.id === id);
+
+export const getColumnsByList = ({ columns }, listId) =>
+  columns.filter((column) => column.listId === listId);
+
 export const addColumn = (payload) => ({ type: "ADD_COLUMN", payload });
 
 export const addCard = (payload) => ({ type: "ADD_CARD", payload });
