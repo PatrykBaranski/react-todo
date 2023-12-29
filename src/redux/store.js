@@ -20,6 +20,11 @@ const reducer = (state, action) => {
         ...state,
         searchFormString: action.payload,
       };
+    case "ADD_LIST":
+      return {
+        ...state,
+        lists: [...state.lists, { ...action.payload, id: shortid() }],
+      };
     default:
       return state;
   }
@@ -57,3 +62,5 @@ export const addSearchString = (payload) => ({
   type: "ADD_SEARCH_STRING",
   payload,
 });
+
+export const addList = (payload) => ({ type: "ADD_LIST", payload });

@@ -1,4 +1,3 @@
-import SearchForm from "../SearchForm";
 import styles from "./Hero.module.scss";
 import PageTitle from "../PageTitle/PageTitle";
 
@@ -9,7 +8,6 @@ function Hero() {
       <p className={styles.subtitle}>
         A simple to-do app, with list, columns and cards
       </p>
-      <SearchForm />
     </div>
   );
 }
