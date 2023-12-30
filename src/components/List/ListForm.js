@@ -31,7 +31,7 @@ function ListForm() {
         value={description}
         onChange={(e) => setDescription(e.target.value)}
       />
-      <Button>Add column</Button>
+      <Button>Add List</Button>
     </form>
   );
 }

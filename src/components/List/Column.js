@@ -14,8 +14,8 @@ function Column({ title, icon, id }) {
         {title[0].toUpperCase() + title.slice(1).toLowerCase()}
       </h2>
       <ul className={styles.cards}>
-        {cards.map(({ id, title }) => (
-          <Card key={id} id={id}>
+        {cards.map(({ id, title, isFavorite }) => (
+          <Card key={id} id={id} isFavorite={isFavorite}>
             {title}
           </Card>
         ))}
