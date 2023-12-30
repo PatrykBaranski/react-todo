@@ -1,0 +1,14 @@
+@import "../styles/settings.scss";
+.favorite-cards {
+  padding: 0;
+  margin: 0 auto;
+  color: $color-black;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  li {
+    width: 100%;
+  }
+}

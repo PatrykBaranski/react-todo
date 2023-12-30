@@ -8,7 +8,10 @@ const reducer = (state, action) => {
     case "ADD_COLUMN":
       return {
         ...state,
-        columns: [...state.columns, { ...action.payload, id: shortid() }],
+        columns: [
+          ...state.columns,
+          { ...action.payload, id: shortid(), isFavorite: false },
+        ],
       };
     case "ADD_CARD":
       return {
@@ -64,3 +67,14 @@ export const addSearchString = (payload) => ({
 });
 
 export const addList = (payload) => ({ type: "ADD_LIST", payload });
+
+export const toggleFavoriteCard = (cards, cardId) => {
+  const card = cards.find((card) => card.id === cardId);
+  card.isFavorite = !card.isFavorite;
+};
+
+export const isFavoriteCard = (cards, cardId) =>
+  cards.find((card) => card.id === cardId).isFavorite;
+
+export const getFavoriteCards = ({ cards }) =>
+  cards.filter((card) => card.isFavorite);
