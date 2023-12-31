@@ -2,11 +2,10 @@ import { useSelector } from "react-redux";
 import PageTitle from "./PageTitle/PageTitle";
 import { getFavoriteCards } from "../redux/store";
 import Card from "./List/Card";
-import styles from "./Favorite.module.scss";
+import styles from "./FavoriteCards.module.scss";
 
-function Favorite() {
+function FavoriteCards() {
   const favoriteCards = getFavoriteCards(useSelector((state) => state));
-  console.log(favoriteCards);
 
   return (
     <div>
@@ -22,4 +21,4 @@ function Favorite() {
   );
 }
 
-export default Favorite;
+export default FavoriteCards;
