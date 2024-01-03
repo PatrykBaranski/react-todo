@@ -1,13 +1,16 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import styles from "./Card.module.scss";
 import {
   toggleFavoriteCard,
   isFavoriteCard,
-  getCardById,
-} from "../../redux/store";
+  deleteCard,
+} from "../../redux/cardsReducer";
+import { getCardById } from "../../redux/cardsReducer";
 import { useState } from "react";
 
 function Card({ children, id }) {
+  const dispatch = useDispatch();
+
   const card = getCardById(
     useSelector((state) => state),
     id
@@ -19,15 +22,24 @@ function Card({ children, id }) {
     setIsFavorite(isFavoriteCard(card));
   };
 
+  const deleteCardClickHandler = () => {
+    dispatch(deleteCard(card));
+  };
+
   return (
     <li className={styles.card} id={id}>
       {children}
-      <button
-        onClick={favoriteCardClickHandler}
-        className={styles.favoriteButton}
-      >
-        <i className={isFavorite ? "fa fa-star" : " fa fa-star-o"}></i>
-      </button>
+      <div>
+        <button
+          onClick={favoriteCardClickHandler}
+          className={styles.cardButton}
+        >
+          <i className={isFavorite ? "fa fa-star" : " fa fa-star-o"}></i>
+        </button>
+        <button onClick={deleteCardClickHandler} className={styles.cardButton}>
+          <i className="fa fa-trash"></i>
+        </button>
+      </div>
     </li>
   );
 }
